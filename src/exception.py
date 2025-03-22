@@ -1,5 +1,6 @@
 import sys
 import logging
+from src.logger import logging
 def error_message_detail(error,error_detail:sys):
     _,_,exc_tb = error_detail.exc_info() ## This will give 3 outputs and the 3rd o/p will be the information about the exception that where it occured and at which line it occured
     file_name = exc_tb.tb_frame.f_code.co_filename
@@ -16,3 +17,12 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
+    
+# if __name__=="__main__":
+    
+#     try:
+#         a = 1/0
+#     except Exception as e:
+#         logging.info("Divide by zero")
+#         raise CustomException(e,sys)
+     
