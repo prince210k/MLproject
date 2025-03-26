@@ -38,11 +38,13 @@ def evaluate_model(X_train, y_train, X_test, y_test, models):
         model_report = {}
         
         for model_name, model in models.items():
-            model.fit(X_train, y_train)  # Train the model
-            y_pred = model.predict(X_test)  # Predict on test data
-            score = r2_score(y_test, y_pred)  # Compute R^2 score
+            model.fit(X_train, y_train)  
+            y_pred = model.predict(X_test)  
+            score = r2_score(y_test, y_pred)  
+            print(f"Model {model_name} : {score*100}")
             model_report[model_name] = score
         
         return model_report
     except Exception as e:
         raise CustomException(e,sys)
+    

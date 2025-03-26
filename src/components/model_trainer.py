@@ -55,7 +55,7 @@ class ModelTrainer:
             
             if best_model_score < 0.6:
                 raise CustomException("No best model found")
-            logging.info(f"Best model found with accuracy of {best_model_score}")
+            logging.info(f"Best model {best_model_name} found with accuracy of {best_model_score*100}")
             
             save_object(
                 self.model_trainer_config.trainerd_model_path,
